@@ -13,7 +13,7 @@
             #header:hover {
                 background-color: gray;
             }
-            .butts {
+            #butts {
                 border: 2px solid;
                 font-size: 91px;
                 text-align: center;
@@ -27,10 +27,18 @@
         <div id = "first-para">
             <p>Hello, thank you for visiting my website that I designed in like 5 - 10 minutes. This is just webpage with a useless button.</p>
         </div>
-        <button class = "butts">Useless button</button>
+        <button id = "butts">Useless button</button>
         <p>- Made by Javier</p>
         <script>
+        // 1. Find and store the element we want to listen to events on.
+        var buttonEl = document.getElementById("butts");
+        // 2. Define the function that will respond to the event.
+        var clickedAlready = function() {
+            alert("It's useless, stop clicking already!");
+        }
+        // 3. Add the event listener for the element and function
         
+        buttonEl.addEventListener("click", clickedAlready)
         </script>
     </body>
 </html>
