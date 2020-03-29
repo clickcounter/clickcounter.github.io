@@ -14,45 +14,77 @@
                 background-color: gray;
             }
             #butts {
-                border: 2px solid;
-                font-size: 91px;
-                text-align: center;
+                border: 1px solid rgb(184, 184, 184);
+                font-size: 41px;
             }
-            #butts:hover {
+            #butts:hover, #butts:focus {
                 cursor: pointer;
+                background-color: rgb(179, 179, 179);
+            }
+            #Clicks {
+                text-align: center;
+                font-size: 2em;
+                font-family: sans-serif;
+            }
+            #boxBorder {
+                border: 1px solid;
+                text-align: center;
+                background-color: rgb(247, 247, 247);
             }
         </style>
     </head>
     <body>
         <div id = "header">
-            <h1>TLL - English, Sunday 4pm Class</h1>
+            <h1>TLL - Math, Sunday 2pm Class</h1>
         </div>
         <div id = "first-para">
             <p>Hello, thank you for visiting my website that I designed in like 5 - 10 minutes. This is just webpage with a useless button.</p>
         </div>
+        <div id = "boxBorder">
         <button id = "butts">Useless button</button>
+        <p id = "Clicks">Clicks: <span id = "Clicker">0</span></p>
+        </div>
         <p>- Made by Javier</p>
         <script>
         var clicks = 0;
         var messages = [
-            "Hi, I'm a Useless Button",
+            "Hi, I am a Useless Button",
             "Stop clicking, it's useless",
             "Pls stop already",
             "You are so persistent",
-            "Fine, I refuse to work now, and will truly become useless"
+            "Fine, I refuse to work now, and will truly become useless",
+            "Useless Button"
+            
             ]
         // 1. Find and store the element we want to listen to events on.
         var buttonEl = document.getElementById("butts");
         // 2. Define the function that will respond to the event.
         var clickedAlready = function() {
+            var buttonTextEl = document.getElementById("butts")      
             if (clicks < messages.length) {
-                alert(messages[clicks]);
-                clicks ++;
+                buttonTextEl.textContent = messages[clicks];
             }
-        }
+            else if (clicks === 19) {
+                buttonTextEl.textContent = "You're still here?";
+            }
+            else if (clicks > 19) {
+                buttonTextEl.textContent = "Useless Button"
+            }
+            clicks ++;
+        };
         // 3. Add the event listener for the element and function
         
+        
         buttonEl.addEventListener("click", clickedAlready)
+        var sth = function() {
+            document.querySelector("span").innerHTML = clicks;
+        };
+            window.setInterval(sth, 10)
+            
+        
+        
+            
+        
         </script>
     </body>
 </html>
