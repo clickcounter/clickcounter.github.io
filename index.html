@@ -18,6 +18,9 @@
                 font-size: 91px;
                 text-align: center;
             }
+            #butts:hover {
+                cursor: pointer;
+            }
         </style>
     </head>
     <body>
@@ -30,11 +33,22 @@
         <button id = "butts">Useless button</button>
         <p>- Made by Javier</p>
         <script>
+        var clicks = 0;
+        var messages = [
+            "Useless Button",
+            "Stop clicking, it's useless",
+            "Pls stop already",
+            "You are so persistent",
+            "Fine, I refuse to work now, and will truly become useless"
+            ]
         // 1. Find and store the element we want to listen to events on.
         var buttonEl = document.getElementById("butts");
         // 2. Define the function that will respond to the event.
         var clickedAlready = function() {
-            alert("It's useless, stop clicking already!");
+            if (clicks < messages.length) {
+                alert(messages[clicks]);
+                clicks ++;
+            }
         }
         // 3. Add the event listener for the element and function
         
