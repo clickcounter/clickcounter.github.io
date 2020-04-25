@@ -4,17 +4,22 @@
         <meta charset="utf-8">
         <title>Click Counter</title>
         <style>
-            h2 {
+            p {
                 text-align: center;
                 font-size: 2em;
-                font-weight: normal;
             }
             button {
+                width: 100%;
+                min-height: 200px;
                 background-color: green;
                 font-size: 3em;
             }
             div.button-wrapper {
                 text-align: center;
+            }
+            span#counter, span#counter2 {
+                font-weight: bold;
+                color: red;
             }
             
             
@@ -24,7 +29,13 @@
         <div class="button-wrapper">
             <button type="button" id="clicker">Click Counter</button>
         </div>
-        <div id="counter-wrapper"><h2 id="counter">0</h2></div>
+        
+        <div class="button-wrapper">
+            <button type="button" id="clicker2">Click Counter 2</button>
+        </div>
+        
+        <p>Clicks for button 1: <span id="counter">0</span></p>
+        <p>Clicks for button 2: <span id="counter2">0</span></p>
         <script>
             var clicks = 0;
             var buttonEl = document.getElementById("clicker");
@@ -34,6 +45,16 @@
                 counter.innerHTML = clicks;
             }
             buttonEl.addEventListener("click", onClick);
+            
+            
+            var clicks2 = 0;
+            var buttonEl2 = document.getElementById("clicker2");
+            var counterEl2 = document.getElementById("counter2");
+            var onClick2 = function() {
+                clicks2++;
+                counter2.innerHTML = clicks2;
+            }
+            buttonEl2.addEventListener("click", onClick2);
         </script>
     </body>
 </html>
